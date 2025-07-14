@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Enhanced Card Animations */
+@keyframes card-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes card-pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 4px 15px rgba(156, 163, 175, 0.2), 0 0 20px rgba(156, 163, 175, 0.1);
+  }
+  50% { 
+    box-shadow: 0 8px 25px rgba(156, 163, 175, 0.3), 0 0 30px rgba(156, 163, 175, 0.15);
+  }
+}
+
+@keyframes card-tilt {
+  0%, 100% { transform: perspective(1000px) rotateX(0deg) rotateY(0deg); }
+  25% { transform: perspective(1000px) rotateX(1deg) rotateY(-1deg); }
+  75% { transform: perspective(1000px) rotateX(-1deg) rotateY(1deg); }
+}
+
+@keyframes header-glow {
+  0%, 100% { 
+    text-shadow: 0 0 8px rgba(156, 163, 175, 0.6), 0 0 16px rgba(156, 163, 175, 0.4);
+    filter: brightness(1);
+  }
+  50% { 
+    text-shadow: 0 0 16px rgba(156, 163, 175, 0.8), 0 0 24px rgba(156, 163, 175, 0.6);
+    filter: brightness(1.1);
+  }
+}
+
+@keyframes header-dark-glow {
+  0%, 100% { 
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4);
+    filter: brightness(1);
+  }
+  50% { 
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6);
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes card-border-glow {
+  0%, 100% { border-color: rgba(156, 163, 175, 0.3); }
+  50% { border-color: rgba(156, 163, 175, 0.7); }
+}
+
+@keyframes card-content-slide {
+  0% { transform: translateY(10px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes button-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(156, 163, 175, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(156, 163, 175, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(156, 163, 175, 0); }
+}
+
+@keyframes skill-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes text-reveal {
+  0% { opacity: 0; filter: blur(10px); }
+  100% { opacity: 1; filter: blur(0); }
+}
+
+@keyframes stagger-fade {
+  0% { opacity: 0; transform: translateX(-20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes card-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@keyframes card-entrance {
+  0% { 
+    opacity: 0; 
+    transform: translateY(30px) rotateX(10deg) scale(0.9); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) rotateX(0deg) scale(1); 
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes matrix-glow {
+  0%, 100% { 
+    text-shadow: 0 0 5px rgba(156, 163, 175, 0.5);
+  }
+  50% { 
+    text-shadow: 0 0 10px rgba(156, 163, 175, 0.8), 0 0 20px rgba(156, 163, 175, 0.4);
+  }
+}
+
+@keyframes matrix-dark-glow {
+  0%, 100% { 
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  }
+  50% { 
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* Animation Classes */
+.animate-bounce-in {
+  animation: bounce-in 1s ease-out;
+}
+
+.animate-button-pulse {
+  animation: button-pulse 2s infinite;
+}
+
+.animate-card-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-card-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: card-shimmer 3s infinite;
+  pointer-events: none;
+}
+
+.animate-card-pulse-glow {
+  animation: card-pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-card-tilt {
+  animation: card-tilt 6s ease-in-out infinite;
+}
+
+.animate-header-glow {
+  animation: header-glow 2s ease-in-out infinite;
+}
+
+.dark .animate-header-glow {
+  animation: header-dark-glow 2s ease-in-out infinite;
+}
+
+.animate-card-border-glow {
+  animation: card-border-glow 2s ease-in-out infinite;
+}
+
+.animate-card-content-slide {
+  animation: card-content-slide 0.8s ease-out;
+}
+
+.animate-skill-pop {
+  animation: skill-pop 0.3s ease-in-out;
+}
+
+.animate-text-reveal {
+  animation: text-reveal 1s ease-out;
+}
+
+.animate-stagger-fade {
+  animation: stagger-fade 0.8s ease-out;
+}
+
+.animate-card-float {
+  animation: card-float 4s ease-in-out infinite;
+}
+
+.animate-card-entrance {
+  animation: card-entrance 0.8s ease-out;
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+.animate-matrix-glow {
+  animation: matrix-glow 2s ease-in-out infinite;
+}
+
+.dark .animate-matrix-glow {
+  animation: matrix-dark-glow 2s ease-in-out infinite;
+}
+
+/* Enhanced Card Hover Effects */
+.card-hover-enhanced {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-hover-enhanced:hover {
+  transform: translateY(-15px) scale(1.03) rotateX(5deg);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2), 0 0 30px rgba(156, 163, 175, 0.3);
+}
+
+/* Skill Hover Effects */
+.skill-item {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.skill-item:hover {
+  transform: translateX(10px);
+  text-shadow: 0 0 8px rgba(156, 163, 175, 0.6);
+}
+
+.dark .skill-item:hover {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* Button Hover Effects */
+.btn-enhanced {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-enhanced:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure animations work in production */
+* {
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+/* Force hardware acceleration */
+.animate-card-entrance,
+.animate-card-float,
+.animate-card-pulse-glow,
+.card-hover-enhanced {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
